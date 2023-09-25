@@ -44,7 +44,11 @@ module.exports = (_, argv) => ({
       name: "home",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      //exposes for set the dependancy wish i want to share
+      exposes: {
+        "./Header": "./src/Header.jsx",
+        "./Footer": "./src/Footer.jsx",
+      },
       shared: {
         ...deps,
         react: {
