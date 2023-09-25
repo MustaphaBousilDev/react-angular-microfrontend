@@ -11,3 +11,12 @@ react and angular microfrontend
 ----->css: tailwindCSS
 
 @02::--> same thing of pdp application
+
+@03@::-->npx create-mf-app(cmd)
+-->choose
+----->name of project:server
+----->project type: Api server
+----->port number: 8080
+----->fremwork: nestjs-auth
+----->language: javascript
+----->css: tailwindCSS
