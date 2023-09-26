@@ -13,6 +13,7 @@ module.exports = (_, argv) => ({
 
   devServer: {
     port: 3001,
+    //any route dont exest they return previus page
     historyApiFallback: true,
   },
 
