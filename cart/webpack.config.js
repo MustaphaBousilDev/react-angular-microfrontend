@@ -14,6 +14,10 @@ module.exports = (_, argv) => ({
   devServer: {
     port: 3002,
     historyApiFallback: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+    open: false,
   },
 
   module: {
@@ -43,12 +47,18 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "cart",
       filename: "remoteEntry.js",
+      //remotes is for importing the components from other apps
       remotes: {
         home: "home@http://localhost:3000/remoteEntry.js",
         pdp : "pdp@http://localhost:3001/remoteEntry.js",
         cart: "cart@http://localhost:3002/remoteEntry.js",
       },
-      exposes: {},
+      //exposes  is for exposing the components to other apps
+      exposes: {
+        "./cart" : "./src/cart.js",
+        "./Login" : "./src/Login.jsx",
+        "./MiniCart" : "./src/MiniCart.jsx",
+      },
       shared: {
         ...deps,
         react: {

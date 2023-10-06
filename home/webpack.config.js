@@ -43,7 +43,11 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "home",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        cart: "cart@http://localhost:3002/remoteEntry.js",
+        home: "home@http://localhost:3000/remoteEntry.js",
+        pdp : "pdp@http://localhost:3001/remoteEntry.js",
+      },
       //exposes for set the dependancy wish i want to share
       exposes: {
         "./Header": "./src/Header.jsx",
