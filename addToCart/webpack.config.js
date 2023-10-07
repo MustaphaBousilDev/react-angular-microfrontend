@@ -41,10 +41,15 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "addToCart",
+      name: "addtocart",
       filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {},
+      remotes: {
+        cart: "cart@http://localhost:3002/remoteEntry.js"
+      },
+      exposes: {
+        './AddToCart': './src/AddToCart.jsx',
+        './placeAddToCart': './src/placeAddToCart.js'
+      },
       shared: {
         ...deps,
         "solid-js": {

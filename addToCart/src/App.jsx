@@ -1,5 +1,5 @@
 import { render } from "solid-js/web";
-
+import "remixicon/fonts/remixicon.css";
 import "./index.scss";
 
 const App = () => (
